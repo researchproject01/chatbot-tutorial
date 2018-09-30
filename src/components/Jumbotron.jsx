@@ -1,33 +1,42 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import Button from './Button'
 
-const Jumbotron = (props) => {
+
+const Jumbotron = props => {
 	const { image } = props
 
 	return (
 		<Wrapper image={image}>
-			<Headline>Host your next party on Social Hour</Headline>
+			<HeadlineDiv>
+				<Headline>Host your next party on Social Hour</Headline>
+				<Button text="Sign Up" link="/signup"/>
+				<Button text="Sign In" link="/login"/>
+			</HeadlineDiv>
 		</Wrapper>
 	)
 }
 
 const Wrapper = styled.div`
-	background: ${props => `url(${props.image}) no-repeat top center`};
+	background: ${props => `url(${props.image}) no-repeat center center`};
 	background-size: cover;
 	position: relative;
 	text-align: center;
 	width: 100%;
 	height: 800px;
 `
-const Headline = styled.div`
-	text-align: left;
+const HeadlineDiv = styled.div`
 	position: absolute;
 	top: 30%;
 	left: 10%;
+	max-width: 330px;
+`
+const Headline = styled.div`
+	text-align: left;
 	color: white;
 	font-size: 2em;
-	max-width: 200px;
+	margin-bottom: 10px;
 `
 
 Jumbotron.propTypes = {
