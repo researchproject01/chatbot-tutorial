@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 
 
 const Button = props => {
-	const { text, link } = props
+	const { text, link, primary } = props
 
 	return (
 		<LinkWrapper>
-			<StyledLink to={link}>{text}</StyledLink>
+			<StyledLink to={link} primary={primary}>{text}</StyledLink>
 		</LinkWrapper>
 	)
 }
@@ -23,12 +23,12 @@ const StyledLink = styled(Link)`
 		text-decoration: none;
 	}
 	&:hover {
-		background-color: #FFF;
+		background-color: ${props => props.primary ? '#FFF' : '#f14572'};
 		transition: all .5s;
-		color: #f14572;
+		color: ${props => props.primary ? '#f14572' : '#FFF'};
 	}
-	border: 3px solid #FFF;
-	color: #FFF;
+	border: ${props => props.primary ? '3px solid #FFF' : '3px solid #000'};
+	color: ${props => props.primary ? '#FFF' : '#000'};
 	display: inline-block;
 	font-size: 18px;
 	letter-spacing: 0;
@@ -38,8 +38,13 @@ const StyledLink = styled(Link)`
 	width: 175px;
 `
 
+Button.defaultProps = {
+	primary: false,
+}
+
 Button.propTypes = {
 	link: PropTypes.string.isRequired,
+	primary: PropTypes.bool,
 	text: PropTypes.string.isRequired,
 }
 

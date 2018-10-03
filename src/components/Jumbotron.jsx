@@ -2,17 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Button from './Button'
-
+import NavBar from './NavBar'
 
 const Jumbotron = props => {
 	const { image } = props
 
 	return (
 		<Wrapper image={image}>
+			<NavBar/>
 			<HeadlineDiv>
 				<Headline>Host your next party on Social Hour</Headline>
-				<Button text="Sign Up" link="/signup"/>
-				<Button text="Sign In" link="/login"/>
+				<Button text="Sign Up" link="/signup" primary/>
+				<Button text="Sign In" link="/login" primary/>
 			</HeadlineDiv>
 		</Wrapper>
 	)
