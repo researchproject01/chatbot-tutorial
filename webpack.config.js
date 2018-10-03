@@ -6,7 +6,7 @@ module.exports = {
 	context: __dirname,
 	entry: [
 		'react-hot-loader/patch',
-		'webpack-dev-server/client?http://localhost:300',
+		'webpack-dev-server/client?http://localhost:3000',
 		'webpack/hot/only-dev-server',
 		'./src/index.jsx'
 	],
@@ -47,7 +47,11 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				loader: 'babel-loader'
-			}
+			},
+            {
+                test: /\.css$/,
+				use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+            }
 		]
 	}
 };
